@@ -60,7 +60,7 @@ Edit `~/.local/lib/python3.*/site-packages/nltk/parse/chart.py` or the NLTK sour
 git clone https://github.com/USC-NSL/sage.git
 ```
 
-### 4. Build Sage
+### 4. Build SAGE
 ```sh
 cd sage
 make build
@@ -68,15 +68,15 @@ make build
 
 ## Usage
 
-### Run Sage
-To start Sage, execute the following command:
+### Run SAGE
+To start SAGE, execute the following command:
 ```sh
 ./sage -i <rfc.txt> -p <PROTOCOL>
 ```
-During execution Sage provides detailed logs about the process: currently processed sentence, number of logical forms, ..., and lastly, the generated code.
+During execution SAGE provides detailed logs about the process: currently processed sentence, number of logical forms, ..., and lastly, the generated code.
 
-### Add support for additional protocols / Configure Sage
-Sage currently stores configuration files in a distributed fashion. To add support for new protocols, extend the configuration.
+### Add support for additional protocols / Configure SAGE
+SAGE currently stores configuration files in a distributed fashion. To add support for new protocols, extend the configuration.
 
 **Phraser** relies on terms defined in [utils/phraser/data/EN/custom.txt](utils/phraser/data/EN/custom.txt).
 
@@ -95,7 +95,7 @@ Additional ready-to-run test scripts are available in [scripts/tests](scripts/te
 
 ## Caveats and Limitations
 
-Sage is an experimental software under heavy development with limitations:
+SAGE is an experimental software under heavy development with limitations:
 
 * Small number of protocols/RFCs are supported
 * No single config file
@@ -103,4 +103,4 @@ Sage is an experimental software under heavy development with limitations:
 
 ## License
 
-Sage is a free software and licensed under the [3-Clause BSD license](/LICENSE).
+SAGE is a free software and licensed under the [3-Clause BSD license](/LICENSE).
