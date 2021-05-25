@@ -12,7 +12,7 @@ For more information, please refer to the ACM SIGCOMM21 paper ([preprint](https:
 
 
 ## Installation
-There are 2 ways to use SAGE. First is using our [Vagrantfile](/Vagrantfile), second is shown below. If you use the Vagrant file, you may skip to [Usage](#Usage) below. For more information about Vagrant, please visit [official website](https://www.vagrantup.com/intro).
+There are 2 ways to use SAGE. First is using our [Vagrantfile](/Vagrantfile), second is shown below. If you use the Vagrant file, you may skip to [Usage](#Usage) below. For more information about Vagrant, please visit [official website](https://www.vagrantup.com/intro). We provide a simple [how-to](scripts/sigcomm21#Vagrant-how-to) for you to run with our Vagrant file.
 
 ### 1. Install Dependencies
 - Debian/Ubuntu packages
@@ -73,25 +73,26 @@ To start SAGE, execute the following command:
 ```sh
 ./sage -i <rfc.txt> -p <PROTOCOL>
 ```
+
+* rfc.txt: This is the specification text file you would like SAGE to parse
+* PROTOCOL: This is the protocol name you would like to name for the generated header and code files
+
+An example of the command is:
+```sh
+./sage -i igmp.txt -p igmp
+```
+
+This command will parse the input `igmp.txt` text file, and the protocol specified inside the text file is IGMP protocol. The output header and code file will have `IGMP` as the prefix of file names.
+
 During execution SAGE provides detailed logs about the process: currently processed sentence, number of logical forms, ..., and lastly, the generated code.
-
-### Add support for additional protocols / Configure SAGE
-SAGE currently stores configuration files in a distributed fashion. To add support for new protocols, extend the configuration.
-
-**Phraser** relies on terms defined in [utils/phraser/data/EN/custom.txt](utils/phraser/data/EN/custom.txt).
-
-**CCG Tool** uses a lexicon which is stored in [utils/ccg_tool/dictionary.py](utils/ccg_tool/dictionary.py).
-
-**Logical Form Checker** uses [utils/logic_form_checker/check_predicates.py](utils/logic_form_checker/check_predicates.py).
-
-**Code Generator** configuration is stored in [utils/code_generator/settings.py](utils/code_generator/settings.py).
-
 
 ### Run our experiments and tests
 To easily recreate some of our results, we packed our SIGCOMM experiments with ready-to-run shell scripts. For details, see [scripts/sigcomm21](scripts/sigcomm21).
 
 Additional ready-to-run test scripts are available in [scripts/tests](scripts/tests).
 
+### Add support for additional protocols
+SAGE is able to parse a number of protocols, and adding support for additional protocols is still in progress. For more details, we provide another [README](/utils) for introuductions of configurations and an illustration example.
 
 ## Caveats and Limitations
 
@@ -100,6 +101,11 @@ SAGE is an experimental software under heavy development with limitations:
 * Small number of protocols/RFCs are supported
 * No single config file
 * Slow execution due to limited scalability (mostly single-core execution)
+
+## Developers
+
+* Jane Yen - [email](mailto:yeny@usc.edu)
+* Tamás Lévai - [email](mailto:levait@tmit.bme.hu)
 
 ## License
 
