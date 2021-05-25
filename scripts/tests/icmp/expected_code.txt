@@ -115,9 +115,6 @@ void fill_icmp_info_receiver(
     hdr->sequence_number = 0;
   }
 
-  // The type field changed to 16
-  type_field = 16;
-
   // For computing the checksum , the checksum field should be zero
   hdr->checksum = 0;
 
@@ -232,9 +229,6 @@ void fill_icmp_timestamp_receiver(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
   // 14 for timestamp reply message.
   hdr->type = type_value;
 
-  // The type field changed to 14
-  type_field = 14;
-
   // For computing the checksum , the checksum field should be zero
   hdr->checksum = 0;
 
@@ -264,9 +258,6 @@ void fill_icmp_timestamp_sender(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
   if (hdr->code == 0) {
     hdr->sequence_number = 0;
   }
-
-  // The type field changed to 14
-  type_field = 14;
 
   // For computing the checksum , the checksum field should be zero
   hdr->checksum = 0;
