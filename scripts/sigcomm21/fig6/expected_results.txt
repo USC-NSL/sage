@@ -1,0 +1,4 @@
+[{"check": "Type", "lfs": 4.23, "sentences": 18},
+{"check": "Argument Ordering", "lfs": 4.92, "sentences": 7},
+{"check": "Predicate Ordering", "lfs": 2.26, "sentences": 15},
+{"check": "Distributivity", "lfs": 0.23, "sentences": 5}]

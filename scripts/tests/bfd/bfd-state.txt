@@ -1,0 +1,63 @@
+State machine	
+	If the Vers field is not 1 , the packet MUST be
+	discarded.
+
+	If the Length field is less than 24, the packet MUST be
+	discarded.
+
+	If the Length field is greater than the payload of the
+	encapsulating protocol, the packet MUST be discarded.
+
+	If the Detect Mult field is zero, the packet MUST be discarded.
+
+	If the M field is not zero, the packet MUST be
+	discarded.
+
+	If the My Discriminator field is zero, the packet MUST be
+	discarded.
+
+	If the Your Discriminator field is not zero, Your Discriminator field MUST be used to
+	select the session with which the packet is associated.
+
+	If the Your Discriminator field is not zero and the session with which the packet is associated is not found, the packet MUST be discarded.
+
+	If the Your Discriminator field is zero and the State field is not
+	Down or AdminDown, the packet MUST be discarded.
+
+	If the A_field is set and bfd.AuthType
+	is zero, the packet MUST be discarded.
+
+	If the A_field is clear and bfd.AuthType
+	is not zero, the packet MUST be discarded.
+
+	bfd.RemoteDiscr is set to the value of My Discriminator field.
+
+	bfd.RemoteState is set to the value of the Sta_field.
+
+	bfd.RemoteDemandMode is set to the value of the D_field.
+
+	bfd.RemoteMinRxInterval is set to the value of Required Min RX
+	Interval field.
+
+	If the Required Min Echo RX Interval field is zero, the
+	transmission of Echo packets MUST cease.
+
+	If a Poll Sequence is being transmitted by the local system and the F_field in the received packet is set, the Poll Sequence MUST be terminated.
+
+	The local system updates the transmit interval.
+	
+	The local system updates the Detection Time.
+	
+	If bfd.RemoteDemandMode is 1 and bfd.SessionState is Up and
+	bfd.RemoteSessionState is Up, the local system MUST cease the transmission
+	of BFD Control packets.
+
+	If bfd.RemoteDemandMode is 0 or bfd.SessionState is not Up or 
+	bfd.RemoteSessionState is not Up, the local system MUST periodically send BFD Control
+	packets.
+
+	If the P_field is set, the local system sends a BFD Control packet to the
+	remote system with the P_field clear and the F_field
+	set.
+
+

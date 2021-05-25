@@ -1,0 +1,23 @@
+#ifndef BFD_HDR_H_
+#define BFD_HDR_H_
+
+struct Generic_BFD_Control_Packet_Format_hdr {
+  uint64_t vers: 3;
+  uint64_t diag: 5;
+  uint64_t sta: 2;
+  uint64_t p: 1;
+  uint64_t f: 1;
+  uint64_t c: 1;
+  uint64_t a: 1;
+  uint64_t d: 1;
+  uint64_t m: 1;
+  uint8_t detect_mult;
+  uint8_t length;
+  uint32_t my_discriminator;
+  uint32_t your_discriminator;
+  uint32_t desired_min_tx_interval;
+  uint32_t required_min_rx_interval;
+  uint32_t required_min_echo_rx_interval;
+};
+
+#endif  // BFD_HDR_H_

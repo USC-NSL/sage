@@ -1,0 +1,12 @@
+#ifndef IGMP_HDR_H_
+#define IGMP_HDR_H_
+
+struct INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr {
+  uint64_t version: 4;
+  uint64_t type: 4;
+  uint8_t unused;
+  uint16_t checksum;
+  uint32_t group_address;
+};
+
+#endif  // IGMP_HDR_H_

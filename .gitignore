@@ -1,0 +1,25 @@
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+
+# generated message headers
+*_hdr.h
+
+# binaries
+parseicmp
+
+# temporary files
+utils/AutoPhrase/models/DBLP/output.txt
+utils/AutoPhrase/data/EN/input.txt
+*/nul
+
+# metadata system
+utils/metadata_system/*.db
+
+# etc
+*~
+.vagrant/

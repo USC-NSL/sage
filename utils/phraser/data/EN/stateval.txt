@@ -1,0 +1,8 @@
+Down
+Up
+AdminDown
+bfd.RemoteDemandMode
+bfd.SessionState
+bfd.RemoteSessionState
+remote system
+local system

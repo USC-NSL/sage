@@ -1,0 +1,347 @@
+235–236
+2G
+438–445
+802.11 wireless LANs
+802.11i
+802.15.1 networks
+AAC (Advanced Audio Coding)
+ABR (available bit-rate)
+ABR ATM network service
+ACK (positive acknowledgments)
+ACK receipt
+ACK/NAK packets
+AH (Authentication Header) protocol
+AIMD
+ALOHA protocol
+ALOHAnet
+AONs
+AONs (active optical networks)
+AP (access points)
+API
+API (Application Programming Interface)
+AQM (active queue management) algorithms
+AQM algorithms
+ARP
+ARP tables
+ARPA
+ARPA (Advanced Research Projects Agency)
+ARQ (Automatic Repeat reQuest) protocols
+AS-PATH attribute
+ASN (autonomous system number)
+ASN.1 (Abstract Syntax Notation One)
+ASs (autonomous systems)
+ATM ABR (available bit-rate) congestion control
+Abramson
+Abstract Syntax Notation One
+Accounting Management
+Address Resolution Protocol
+Advanced Audio Coding
+Advanced Encryption Standard
+Advanced Research Projects Agency
+Amazon cloud
+Andreessen
+Apache Web server
+BER (Basic Encoding Rules)
+BER (bit error rate)
+BGP (Border Gateway Protocol)
+BGP peers
+BGP sessions
+BIND (Berkeley Internet Name Domain)
+BITNET
+BSC (base station controller)
+BSS (base station system)
+BSS (basic service set)
+BTS (base transceiver station)
+Basic Encoding Rules
+Bellman-Ford equation
+Bellovin
+Berners-Lee
+BitTorrent
+Bluetooth
+Boggs
+Border Gateway Protocol
+CA (Certification Authority)
+CBC (cipher-block chaining)
+CDMA (code division multiple access)
+CDNs (Content Distribution Networks)
+CERT Coordination Center
+CI (congestion indication) bit
+CIDR (Classless Interdomain Routing)
+CMTS
+CSMA protocol
+Cerf
+Certification Authority
+Cisco Systems
+Classless Interdomain Routing
+Clear to Send control frame
+DNS (domain name system)
+DNS intercept/redirect
+DOCSIS protocol
+DSL (digital subscriber line)
+DV (distance-vector) algorithm
+Ethernet
+FDM (frequency-division multiplexing)
+FTP (File Transfer Protocol)
+FTTH (fiber to the home)
+HTTP
+HTTP (HyperText Transfer Protocol)
+HTTP requests directed to Web cache
+ICANN
+IP addresses
+IP anycast
+Internet
+Internet access
+Internet e-mail application
+Kademlia DHT
+LTE (Long-Term Evolution)
+MAC address
+MAC addresses
+MD5
+MP3 (MPEG 1 layer 3)
+N-way-unicast
+Netflix
+P2P (peer-to-peer) protocol
+PCM (pulse code modulation)
+Q2931b protocol
+SMTP (Simple Mail Transfer Protocol)
+SNMPv3
+TCP
+TCP (Transmission Control Protocol)
+TCP connection
+TCP connections
+TCP socket creation
+TDM (time-division multiplexing)
+Telnet
+UDP
+UDP (User Datagram Protocol)
+WEP (Wired Equivalent Privacy)
+Web caches as
+accepting connections from other
+access ISP
+access control and SNMPv3
+access control lists
+access delay
+access networks
+access points
+access routers
+acknowledgments
+active optical networks
+active queue management algorithms
+ad hoc networks
+adapters
+adaptive HTTP streaming
+adaptive congestion control
+adaptive playout delay
+adaptive streaming
+additive-increase multiplicative-decrease
+address
+address aggregation
+address indirection
+address of the source
+address of the destination
+address of the gateway
+addressing
+agent advertisement
+agent discovery
+agent solicitation
+aging time
+alias hostname
+alternating-bit protocols
+analog audio
+anchor MSC
+anchor foreign agent
+anomaly-based IDSs (intrusion detection systems)
+anonymity
+anycast
+application architecture
+application gateways
+application-layer messages
+application-layer protocols
+architecture
+area border routers
+association
+assured forwarding PHB
+asynchronous transfer mode. See ATM
+attributes
+backbone area
+bandwidth
+bandwidth flooding
+bandwidth provisioning
+bandwidth-sensitive applications
+base HTML file
+base station controller. See BSC
+base station system
+base stations
+base transceiver station
+basic service set
+beacon frames
+best-effort delivery service
+best-effort networks
+best-effort service
+bidirectional data transfer
+binary exponential backoff algorithm
+bit error rate
+bit-level error detection and correction
+bits
+blades
+block ciphers
+border routers
+botnet
+bottleneck link
+broadcast routing algorithms
+broadcast storm
+broadcasting (link layer)
+broadcasting (network layer)
+browsers
+buffered distributors
+buffering
+buffers
+burst size
+bursty traffic
+bus
+cable Internet access
+cable modem termination system
+cable modems
+calculation
+call admission
+call setup protocol
+canonical hostnames
+care-of-address
+carrier sense multiple access protocol
+carrier sense multiple access with collision detection
+carrier sensing
+cell phones
+cells
+cellular networks
+certificates
+certifying public keys
+channel numbers
+channel partitioning protocols
+channel propagation delay
+channels
+checksums
+chipping rate
+choke packet
+chosen-plaintext attack
+chunks
+cipher-block chaining
+ciphertext
+ciphertext-only attack
+circuit-switched networks
+circuit-switched routing algorithm
+classful addressing
+cleartext
+client application buffer
+client buffering
+client processes
+client side socket interface
+client socket
+client-server application
+clients
+cloud applications and data center
+cluster selection strategy
+complexity
+complexity and cost
+cryptographic techniques
+data centers
+deep packet inspection
+delay and loss performance
+delaying playout
+developing
+dial-up access
+dominating network core
+eBGP (external BGP) session
+electronic mail
+elimination rules for routes
+end-point
+end-to-end connection
+enterprises
+field
+flooding
+frame
+glitches
+growth of
+guaranteed minimal
+handoffs in GSM
+home access
+host
+hosts
+human speech
+iBGP (internal BGP) session
+igmp
+initiating contact with server
+inter-AS routing protocols
+internet header + 64 bits of data datagram
+link-layer protocols
+link-layer switches
+link-level allocation
+links
+losing packets
+managing mobility
+matching received replies with sent
+measurements
+memo
+message
+mobility among
+multiple service models
+multiplexing
+networks
+operation
+optical distribution network
+packet loss
+packets
+peers
+piggybacked
+poor cryptographic hash function
+port number
+prefetching video
+prefix bits
+process
+processes
+propagation delay
+properties
+proprietary
+public domain
+quantization
+queries
+removing jitter at receiver
+replicating content across clusters
+reserving time slots
+route advertisement
+route selection
+routers
+routers and switches
+routes
+routing calls to cellular user
+routing policy
+routing tables
+satellite links
+secret password
+security
+sending packets
+sequence number
+services
+session
+source address
+spanning-tree broadcast
+spare available bandwidth advantage
+streaming video
+swarming data principles
+switch output interfaces
+telephone networks
+timer threshold
+trading algorithm
+type
+types
+use-it-or-lose-it resource
+unused
+unused field
+version
+versus packet switching
+video
+well-known port number
+wide-area wireless access
+wireless LANs
+wireless hosts
+wireless networks
+wireless station

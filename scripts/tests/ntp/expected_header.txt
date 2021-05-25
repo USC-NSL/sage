@@ -1,0 +1,20 @@
+#ifndef NTP_HDR_H_
+#define NTP_HDR_H_
+
+struct NTP_Data_Format_hdr {
+  uint64_t li: 2;
+  uint64_t vn: 3;
+  uint64_t reser: 3;
+  uint8_t stratum;
+  uint8_t poll;
+  uint8_t precision;
+  uint32_t synchronizing_distance;
+  uint32_t estimated_drift_rate;
+  uint32_t reference_clock_identifier;
+  uint64_t reference_timestamp_64_bits;
+  uint64_t originate_timestamp_64_bits;
+  uint64_t receive_timestamp_64_bits;
+  uint64_t transmit_timestamp_64_bits;
+};
+
+#endif  // NTP_HDR_H_

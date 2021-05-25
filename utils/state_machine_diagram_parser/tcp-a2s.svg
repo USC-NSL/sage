@@ -1,0 +1,172 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with ASCIItoSVG -->
+<svg width="648px" height="752px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="dsFilter" width="150%" height="150%">
+      <feOffset result="offOut" in="SourceGraphic" dx="2" dy="2"/>
+      <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"/>
+      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="3"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+    <marker id="iPointer"
+      viewBox="0 0 10 10" refX="5" refY="5"
+      markerUnits="strokeWidth"
+      markerWidth="8" markerHeight="15"
+      orient="auto">
+      <path d="M 10 0 L 10 10 L 0 5 z" />
+    </marker>
+    <marker id="Pointer"
+      viewBox="0 0 10 10" refX="5" refY="5"
+      markerUnits="strokeWidth"
+      markerWidth="8" markerHeight="15"
+      orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+  </defs>
+  <g id="closed" stroke="#000" stroke-width="2" fill="none">
+    <path id="closed0" fill="#fff" d="M 274.5 24 L 283.5 24 L 292.5 24 L 301.5 24 L 310.5 24 L 319.5 24 L 328.5 24 L 337.5 24 L 346.5 24 L 355.5 24 L 364.5 24 L 364.5 40 L 364.5 56 L 355.5 56 L 346.5 56 L 337.5 56 L 328.5 56 L 319.5 56 L 310.5 56 L 301.5 56 L 292.5 56 L 283.5 56 L 274.5 56 L 274.5 40 Z" />
+    <path id="closed14" fill="#fff" d="M 274.5 152 L 283.5 152 L 292.5 152 L 301.5 152 L 310.5 152 L 319.5 152 L 328.5 152 L 337.5 152 L 346.5 152 L 355.5 152 L 364.5 152 L 364.5 168 L 364.5 184 L 355.5 184 L 346.5 184 L 337.5 184 L 328.5 184 L 319.5 184 L 310.5 184 L 301.5 184 L 292.5 184 L 283.5 184 L 274.5 184 L 274.5 168 Z" />
+    <path id="closed23" fill="#fff" d="M 13.5 232 L 22.5 232 L 31.5 232 L 40.5 232 L 49.5 232 L 58.5 232 L 67.5 232 L 76.5 232 L 85.5 232 L 94.5 232 L 103.5 232 L 103.5 248 L 103.5 264 L 103.5 280 L 103.5 296 L 103.5 312 L 103.5 328 L 94.5 328 L 85.5 328 L 76.5 328 L 67.5 328 L 58.5 328 L 49.5 328 L 40.5 328 L 31.5 328 L 22.5 328 L 13.5 328 L 13.5 312 L 13.5 296 L 13.5 280 L 13.5 264 L 13.5 248 Z" />
+    <path id="closed24" fill="#fff" d="M 544.5 232 L 553.5 232 L 562.5 232 L 571.5 232 L 580.5 232 L 589.5 232 L 598.5 232 L 607.5 232 L 616.5 232 L 625.5 232 L 634.5 232 L 634.5 248 L 634.5 264 L 634.5 280 L 634.5 296 L 634.5 312 L 634.5 328 L 625.5 328 L 616.5 328 L 607.5 328 L 598.5 328 L 589.5 328 L 580.5 328 L 571.5 328 L 562.5 328 L 553.5 328 L 544.5 328 L 544.5 312 L 544.5 296 L 544.5 280 L 544.5 264 L 544.5 248 Z" />
+    <path id="closed38" fill="#fff" d="M 274.5 392 L 283.5 392 L 292.5 392 L 301.5 392 L 310.5 392 L 319.5 392 L 328.5 392 L 337.5 392 L 346.5 392 L 355.5 392 L 364.5 392 L 364.5 408 L 364.5 424 L 355.5 424 L 346.5 424 L 337.5 424 L 328.5 424 L 319.5 424 L 310.5 424 L 301.5 424 L 292.5 424 L 283.5 424 L 274.5 424 L 274.5 408 Z" />
+    <path id="closed48" fill="#fff" d="M 13.5 472 L 22.5 472 L 31.5 472 L 40.5 472 L 49.5 472 L 58.5 472 L 67.5 472 L 76.5 472 L 85.5 472 L 94.5 472 L 103.5 472 L 103.5 488 L 103.5 504 L 103.5 520 L 94.5 520 L 85.5 520 L 76.5 520 L 67.5 520 L 58.5 520 L 49.5 520 L 40.5 520 L 31.5 520 L 22.5 520 L 13.5 520 L 13.5 504 L 13.5 488 Z" />
+    <path id="closed49" fill="#fff" d="M 544.5 472 L 553.5 472 L 562.5 472 L 571.5 472 L 580.5 472 L 589.5 472 L 598.5 472 L 607.5 472 L 616.5 472 L 625.5 472 L 634.5 472 L 634.5 488 L 634.5 504 L 634.5 520 L 625.5 520 L 616.5 520 L 607.5 520 L 598.5 520 L 589.5 520 L 580.5 520 L 571.5 520 L 562.5 520 L 553.5 520 L 544.5 520 L 544.5 504 L 544.5 488 Z" />
+    <path id="closed59" fill="#fff" d="M 13.5 584 L 22.5 584 L 31.5 584 L 40.5 584 L 49.5 584 L 58.5 584 L 67.5 584 L 76.5 584 L 85.5 584 L 94.5 584 L 103.5 584 L 103.5 600 L 103.5 616 L 94.5 616 L 85.5 616 L 76.5 616 L 67.5 616 L 58.5 616 L 49.5 616 L 40.5 616 L 31.5 616 L 22.5 616 L 13.5 616 L 13.5 600 Z" />
+    <path id="closed60" fill="#fff" d="M 274.5 584 L 283.5 584 L 292.5 584 L 301.5 584 L 310.5 584 L 319.5 584 L 328.5 584 L 337.5 584 L 346.5 584 L 355.5 584 L 364.5 584 L 364.5 600 L 364.5 616 L 355.5 616 L 346.5 616 L 337.5 616 L 328.5 616 L 319.5 616 L 310.5 616 L 301.5 616 L 292.5 616 L 283.5 616 L 274.5 616 L 274.5 600 Z" />
+    <path id="closed61" fill="#fff" d="M 544.5 584 L 553.5 584 L 562.5 584 L 571.5 584 L 580.5 584 L 589.5 584 L 598.5 584 L 607.5 584 L 616.5 584 L 625.5 584 L 634.5 584 L 634.5 600 L 634.5 616 L 625.5 616 L 616.5 616 L 607.5 616 L 598.5 616 L 589.5 616 L 580.5 616 L 571.5 616 L 562.5 616 L 553.5 616 L 544.5 616 L 544.5 600 Z" />
+    <path id="closed71" fill="#fff" d="M 274.5 680 L 283.5 680 L 292.5 680 L 301.5 680 L 310.5 680 L 319.5 680 L 328.5 680 L 337.5 680 L 346.5 680 L 355.5 680 L 364.5 680 L 364.5 696 L 364.5 712 L 355.5 712 L 346.5 712 L 337.5 712 L 328.5 712 L 319.5 712 L 310.5 712 L 301.5 712 L 292.5 712 L 283.5 712 L 274.5 712 L 274.5 696 Z" />
+    <path id="closed72" fill="#fff" d="M 544.5 680 L 553.5 680 L 562.5 680 L 571.5 680 L 580.5 680 L 589.5 680 L 598.5 680 L 607.5 680 L 616.5 680 L 625.5 680 L 634.5 680 L 634.5 696 L 634.5 712 L 625.5 712 L 616.5 712 L 607.5 712 L 598.5 712 L 589.5 712 L 580.5 712 L 571.5 712 L 562.5 712 L 553.5 712 L 544.5 712 L 544.5 696 Z" />
+  </g>
+  <g id="lines" stroke="#000" stroke-width="2" fill="none">
+    <path id="open1" d="M 274.5 24 L 283.5 24 L 292.5 24 L 301.5 24 L 310.5 24 L 319.5 24 L 328.5 24 L 337.5 24 L 346.5 24 L 355.5 24 L 364.5 24 L 364.5 40 L 364.5 56 L 373.5 56 L 382.5 56 L 391.5 56 L 400.5 56 L 409.5 56 L 418.5 56 L 427.5 56 L 436.5 56 L 445.5 56 L 454.5 56 " />
+    <path id="open2" d="M 382.5 24 L 391.5 24 L 400.5 24 L 409.5 24 L 418.5 24 L 427.5 24 L 436.5 24 L 445.5 24 L 454.5 24 " />
+    <path id="open3" d="M 526.5 40 L 535.5 40 L 544.5 40 L 553.5 40 L 562.5 40 L 571.5 40 L 580.5 40 L 589.5 40 L 598.5 40 L 607.5 40 L 616.5 40 " />
+    <path id="open4" d="M 292.5 72 L 292.5 88 " />
+    <path id="open5" marker-start="url(#iPointer)" d="M 346.5 72 L 346.5 88 " />
+    <path id="open6" d="M 292.5 88 L 292.5 104 " />
+    <path id="open7" d="M 346.5 88 L 346.5 104 " />
+    <path id="open8" d="M 175.5 104 L 184.5 104 L 193.5 104 L 202.5 104 L 211.5 104 L 220.5 104 L 229.5 104 L 238.5 104 L 247.5 104 L 256.5 104 L 265.5 104 L 274.5 104 " />
+    <path id="open9" d="M 292.5 104 L 292.5 120 " />
+    <path id="open10" d="M 346.5 104 L 346.5 120 " />
+    <path id="open11" d="M 364.5 104 L 373.5 104 L 382.5 104 L 391.5 104 L 400.5 104 L 409.5 104 L 418.5 104 L 427.5 104 L 436.5 104 L 445.5 104 " />
+    <path id="open12" d="M 346.5 120 L 346.5 136 " />
+    <path id="open13" d="M 553.5 136 L 562.5 152 L 562.5 168 L 562.5 184 L 562.5 200 L 562.5 216 " />
+    <path id="open15" d="M 607.5 152 L 616.5 168 L 616.5 184 L 616.5 200 " />
+    <path id="open16" d="M 463.5 168 L 472.5 168 L 481.5 168 L 490.5 168 L 499.5 168 L 508.5 168 L 517.5 168 L 526.5 168 L 535.5 168 L 544.5 168 " />
+    <path id="open17" d="M 292.5 200 L 292.5 216 " />
+    <path id="open18" d="M 346.5 200 L 346.5 216 " />
+    <path id="open19" d="M 166.5 216 L 175.5 216 L 184.5 216 L 193.5 216 L 202.5 216 L 211.5 216 L 220.5 216 L 229.5 216 L 238.5 216 L 247.5 216 L 256.5 216 " />
+    <path id="open20" d="M 292.5 216 L 283.5 232 " />
+    <path id="open21" d="M 346.5 216 L 355.5 232 " />
+    <path id="open22" d="M 391.5 216 L 400.5 216 L 409.5 216 L 418.5 216 L 427.5 216 L 436.5 216 L 445.5 216 " />
+    <path id="open25" marker-start="url(#iPointer)" d="M 112.5 248 L 121.5 248 L 130.5 248 L 139.5 248 L 148.5 248 L 157.5 248 L 166.5 248 L 175.5 248 L 184.5 248 L 193.5 248 L 202.5 248 L 211.5 248 L 220.5 248 L 229.5 248 L 238.5 248 L 247.5 248 L 256.5 248 L 265.5 248 " />
+    <path id="open26" marker-end="url(#Pointer)" d="M 373.5 248 L 382.5 248 L 391.5 248 L 400.5 248 L 409.5 248 L 418.5 248 L 427.5 248 L 436.5 248 L 445.5 248 L 454.5 248 L 463.5 248 L 472.5 248 L 481.5 248 L 490.5 248 L 499.5 248 L 508.5 248 L 517.5 248 L 526.5 248 L 535.5 248 " />
+    <path id="open27" marker-start="url(#iPointer)" d="M 112.5 280 L 121.5 280 L 130.5 280 L 139.5 280 L 148.5 280 L 157.5 280 L 166.5 280 L 175.5 280 L 184.5 280 L 193.5 280 L 202.5 280 L 211.5 280 L 220.5 280 L 229.5 280 L 238.5 280 L 247.5 280 L 256.5 280 L 265.5 280 L 274.5 280 L 283.5 280 L 292.5 280 L 301.5 280 L 310.5 280 L 319.5 280 L 328.5 280 L 337.5 280 L 346.5 280 L 355.5 280 L 364.5 280 L 373.5 280 L 382.5 280 L 391.5 280 L 400.5 280 L 409.5 280 L 418.5 280 L 427.5 280 L 436.5 280 L 445.5 280 L 454.5 280 L 463.5 280 L 472.5 280 L 481.5 280 L 490.5 280 L 499.5 280 L 508.5 280 L 517.5 280 L 526.5 280 L 535.5 280 " />
+    <path id="open28" d="M 112.5 312 L 121.5 312 L 130.5 312 L 139.5 312 L 148.5 312 L 157.5 312 L 166.5 312 L 175.5 312 L 184.5 312 L 193.5 312 L 202.5 312 L 211.5 312 L 220.5 312 L 229.5 312 L 238.5 312 L 247.5 312 L 256.5 312 L 265.5 312 " />
+    <path id="open29" d="M 373.5 312 L 382.5 312 L 391.5 312 L 400.5 312 L 409.5 312 L 418.5 312 L 427.5 312 L 436.5 312 L 445.5 312 L 454.5 312 L 463.5 312 L 472.5 312 L 481.5 312 L 490.5 312 L 499.5 312 L 508.5 312 L 517.5 312 L 526.5 312 L 535.5 312 " />
+    <path id="open30" d="M 283.5 328 L 292.5 344 L 292.5 360 " />
+    <path id="open31" d="M 355.5 328 L 346.5 344 L 346.5 360 " />
+    <path id="open32" d="M 31.5 344 L 31.5 360 " />
+    <path id="open33" d="M 139.5 344 L 148.5 344 L 157.5 344 L 166.5 344 L 175.5 344 L 184.5 344 L 193.5 344 L 202.5 344 L 211.5 344 L 220.5 344 L 229.5 344 L 238.5 344 L 247.5 344 L 256.5 344 " />
+    <path id="open34" d="M 382.5 344 L 391.5 344 L 400.5 344 L 409.5 344 L 418.5 344 L 427.5 344 L 436.5 344 L 445.5 344 L 454.5 344 L 463.5 344 L 472.5 344 " />
+    <path id="open35" d="M 31.5 360 L 31.5 376 " />
+    <path id="open36" d="M 31.5 376 L 31.5 392 " />
+    <path id="open37" d="M 31.5 392 L 31.5 408 " />
+    <path id="open39" d="M 31.5 408 L 31.5 424 " />
+    <path id="open40" d="M 49.5 408 L 58.5 408 L 67.5 408 L 76.5 408 L 85.5 408 L 94.5 408 L 103.5 408 " />
+    <path id="open41" d="M 31.5 424 L 31.5 440 " />
+    <path id="open42" d="M 292.5 440 L 292.5 456 " />
+    <path id="open43" d="M 346.5 440 L 346.5 456 " />
+    <path id="open44" d="M 202.5 456 L 211.5 456 L 220.5 456 L 229.5 456 L 238.5 456 L 247.5 456 L 256.5 456 " />
+    <path id="open45" d="M 292.5 456 L 283.5 472 " />
+    <path id="open46" d="M 346.5 456 L 355.5 472 " />
+    <path id="open47" d="M 391.5 456 L 400.5 456 L 409.5 456 L 418.5 456 L 427.5 456 L 436.5 456 L 445.5 456 " />
+    <path id="open50" marker-start="url(#iPointer)" d="M 112.5 488 L 121.5 488 L 130.5 488 L 139.5 488 L 148.5 488 L 157.5 488 L 166.5 488 L 175.5 488 L 184.5 488 L 193.5 488 L 202.5 488 L 211.5 488 L 220.5 488 L 229.5 488 L 238.5 488 L 247.5 488 L 256.5 488 L 265.5 488 " />
+    <path id="open51" marker-end="url(#Pointer)" d="M 373.5 488 L 382.5 488 L 391.5 488 L 400.5 488 L 409.5 488 L 418.5 488 L 427.5 488 L 436.5 488 L 445.5 488 L 454.5 488 L 463.5 488 L 472.5 488 L 481.5 488 L 490.5 488 L 499.5 488 L 508.5 488 L 517.5 488 L 526.5 488 L 535.5 488 " />
+    <path id="open52" d="M 112.5 504 L 121.5 504 L 130.5 504 L 139.5 504 L 148.5 504 L 157.5 504 L 166.5 504 L 175.5 504 L 184.5 504 L 193.5 504 L 202.5 504 L 211.5 504 L 220.5 504 L 229.5 504 L 238.5 504 L 247.5 504 L 256.5 504 L 265.5 504 " />
+    <path id="open53" d="M 283.5 520 L 292.5 536 L 292.5 552 " />
+    <path id="open54" d="M 31.5 536 L 31.5 552 " />
+    <path id="open55" d="M 202.5 536 L 211.5 536 L 220.5 536 L 229.5 536 L 238.5 536 L 247.5 536 L 256.5 536 " />
+    <path id="open56" d="M 616.5 536 L 616.5 552 " />
+    <path id="open57" d="M 49.5 552 L 58.5 552 L 67.5 552 L 76.5 552 L 85.5 552 L 94.5 552 L 103.5 552 L 112.5 552 L 121.5 552 L 130.5 552 L 139.5 552 L 148.5 552 L 157.5 552 L 166.5 552 " />
+    <path id="open58" d="M 544.5 552 L 553.5 552 L 562.5 552 L 571.5 552 L 580.5 552 L 589.5 552 L 598.5 552 " />
+    <path id="open62" d="M 31.5 632 L 31.5 648 " />
+    <path id="open63" d="M 319.5 632 L 319.5 648 " />
+    <path id="open64" d="M 616.5 632 L 616.5 648 " />
+    <path id="open65" d="M 31.5 648 L 31.5 664 " />
+    <path id="open66" d="M 184.5 648 L 193.5 648 L 202.5 648 L 211.5 648 L 220.5 648 L 229.5 648 L 238.5 648 L 247.5 648 L 256.5 648 L 265.5 648 L 274.5 648 L 283.5 648 L 292.5 648 L 301.5 648 " />
+    <path id="open67" d="M 481.5 648 L 490.5 648 L 499.5 648 L 508.5 648 L 517.5 648 L 526.5 648 L 535.5 648 L 544.5 648 L 553.5 648 L 562.5 648 L 571.5 648 L 580.5 648 L 589.5 648 L 598.5 648 " />
+    <path id="open68" marker-end="url(#Pointer)" d="M 31.5 664 L 40.5 680 L 49.5 696 L 58.5 696 L 67.5 696 L 76.5 696 L 85.5 696 L 94.5 696 L 103.5 696 L 112.5 696 L 121.5 696 L 130.5 696 L 139.5 696 L 148.5 696 L 157.5 696 L 166.5 696 L 175.5 696 L 184.5 696 L 193.5 696 L 202.5 696 L 211.5 696 L 220.5 696 L 229.5 696 L 238.5 696 L 247.5 696 L 256.5 696 L 265.5 696 " />
+    <path id="open69" d="M 58.5 664 L 67.5 664 L 76.5 664 L 85.5 664 L 94.5 664 L 103.5 664 L 112.5 664 " />
+    <path id="open70" d="M 364.5 664 L 373.5 664 L 382.5 664 L 391.5 664 L 400.5 664 L 409.5 664 L 418.5 664 L 427.5 664 L 436.5 664 L 445.5 664 L 454.5 664 L 463.5 664 " />
+    <line x1="540.5" y1="660" x2="548.5" y2="668" stroke-width="1" />
+    <line x1="548.5" y1="660" x2="540.5" y2="668" stroke-width="1" />
+    <path id="open73" d="M 544.5 680 L 544.5 664 " />
+    <path id="open74" marker-end="url(#Pointer)" d="M 373.5 696 L 382.5 696 L 391.5 696 L 400.5 696 L 409.5 696 L 418.5 696 L 427.5 696 L 436.5 696 L 445.5 696 L 454.5 696 L 463.5 696 L 472.5 696 L 481.5 696 L 490.5 696 L 499.5 696 L 508.5 696 L 517.5 696 L 526.5 696 L 535.5 696 " />
+  </g>
+  <g id="text" stroke="none" style="font-family:Consolas,Monaco,Anonymous Pro,Anonymous,Bitstream Sans Mono,monospace;font-size:15.2px" >
+    <text id="obj75" x="526.5" y="24" fill="#000">active OPEN</text>
+    <text id="obj76" x="301.5" y="40" fill="#000">CLOSED</text>
+    <text id="obj77" x="535.5" y="56" fill="#000">create TCB</text>
+    <text id="obj78" x="544.5" y="72" fill="#000">snd SYN</text>
+    <text id="obj79" x="175.5" y="88" fill="#000">passive OPEN</text>
+    <text id="obj80" x="382.5" y="88" fill="#000">CLOSE</text>
+    <text id="obj81" x="184.5" y="120" fill="#000">create TCB</text>
+    <text id="obj82" x="364.5" y="120" fill="#000">delete TCB</text>
+    <text id="obj83" x="292.5" y="136" fill="#000">V</text>
+    <text id="obj84" x="481.5" y="152" fill="#000">CLOSE</text>
+    <text id="obj85" x="301.5" y="168" fill="#000">LISTEN</text>
+    <text id="obj86" x="463.5" y="184" fill="#000">delete TCB</text>
+    <text id="obj87" x="175.5" y="200" fill="#000">rcv SYN</text>
+    <text id="obj88" x="400.5" y="200" fill="#000">SEND</text>
+    <text id="obj89" x="616.5" y="216" fill="#000">V</text>
+    <text id="obj90" x="166.5" y="232" fill="#000">snd SYN,ACK</text>
+    <text id="obj91" x="391.5" y="232" fill="#000">snd SYN</text>
+    <text id="obj92" x="49.5" y="264" fill="#000">SYN</text>
+    <text id="obj93" x="292.5" y="264" fill="#000">rcv SYN</text>
+    <text id="obj94" x="580.5" y="264" fill="#000">SYN</text>
+    <text id="obj95" x="49.5" y="280" fill="#000">RCVD</text>
+    <text id="obj96" x="580.5" y="280" fill="#000">SENT</text>
+    <text id="obj97" x="292.5" y="296" fill="#000">snd ACK</text>
+    <text id="obj98" x="139.5" y="328" fill="#000">rcv ACK of SYN</text>
+    <text id="obj99" x="382.5" y="328" fill="#000">rcv SYN,ACK</text>
+    <text id="obj100" x="202.5" y="360" fill="#000">x</text>
+    <text id="obj101" x="400.5" y="360" fill="#000">snd ACK</text>
+    <text id="obj102" x="292.5" y="376" fill="#000">V</text>
+    <text id="obj103" x="346.5" y="376" fill="#000">V</text>
+    <text id="obj104" x="58.5" y="392" fill="#000">CLOSE</text>
+    <text id="obj105" x="301.5" y="408" fill="#000">ESTAB</text>
+    <text id="obj106" x="49.5" y="424" fill="#000">snd FIN</text>
+    <text id="obj107" x="211.5" y="440" fill="#000">CLOSE</text>
+    <text id="obj108" x="391.5" y="440" fill="#000">rcv FIN</text>
+    <text id="obj109" x="31.5" y="456" fill="#000">V</text>
+    <text id="obj110" x="202.5" y="472" fill="#000">snd FIN</text>
+    <text id="obj111" x="391.5" y="472" fill="#000">snd ACK</text>
+    <text id="obj112" x="40.5" y="488" fill="#000">FIN</text>
+    <text id="obj113" x="571.5" y="488" fill="#000">CLOSE</text>
+    <text id="obj114" x="31.5" y="504" fill="#000">WAIT-1</text>
+    <text id="obj115" x="580.5" y="504" fill="#000">WAIT</text>
+    <text id="obj116" x="202.5" y="520" fill="#000">rcv FIN</text>
+    <text id="obj117" x="49.5" y="536" fill="#000">rcv ACK of FIN</text>
+    <text id="obj118" x="553.5" y="536" fill="#000">CLOSE</text>
+    <text id="obj119" x="202.5" y="552" fill="#000">snd ACK</text>
+    <text id="obj120" x="31.5" y="568" fill="#000">V</text>
+    <text id="obj121" x="112.5" y="568" fill="#000">x</text>
+    <text id="obj122" x="292.5" y="568" fill="#000">V</text>
+    <text id="obj123" x="544.5" y="568" fill="#000">snd FIN V</text>
+    <text id="obj124" x="22.5" y="600" fill="#000">FINWAIT-2</text>
+    <text id="obj125" x="292.5" y="600" fill="#000">CLOSING</text>
+    <text id="obj126" x="562.5" y="600" fill="#000">LAST-ACK</text>
+    <text id="obj127" x="184.5" y="632" fill="#000">rcv ACK of FIN</text>
+    <text id="obj128" x="481.5" y="632" fill="#000">rcv ACK of FIN</text>
+    <text id="obj129" x="58.5" y="648" fill="#000">rcv FIN</text>
+    <text id="obj130" x="364.5" y="648" fill="#000">Timeout=2MSL</text>
+    <text id="obj131" x="247.5" y="664" fill="#000">x</text>
+    <text id="obj132" x="319.5" y="664" fill="#000">V</text>
+    <text id="obj133" x="616.5" y="664" fill="#000">V</text>
+    <text id="obj134" x="58.5" y="680" fill="#000">snd ACK</text>
+    <text id="obj135" x="373.5" y="680" fill="#000">delete TCB</text>
+    <text id="obj136" x="283.5" y="696" fill="#000">TIME WAIT</text>
+    <text id="obj137" x="562.5" y="696" fill="#000">CLOSED</text>
+  </g>
+</svg>

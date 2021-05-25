@@ -1,0 +1,79 @@
+#ifndef ICMP_GEN_H_
+#define ICMP_GEN_H_
+
+void fill_icmp_echo_receiver(Echo_or_Echo_Reply_Message_hdr *hdr,
+                             uint16_t length, int type_value) {
+  char *data = (char *) (hdr + 1);
+  // Set code to 0
+  hdr->code = 0;
+
+  // If code equals 0, an identifier may be zero to help match echos and
+  // replies.
+  if (hdr->code == 0) {
+    hdr->identifier = 0;
+  }
+
+  // If code equals 0, a sequence number may be zero to help match echos and
+  // replies.
+  if (hdr->code == 0) {
+    hdr->sequence_number = 0;
+  }
+
+  // 0 for echo reply message.
+  hdr->type = type_value;
+
+  // For computing the checksum, the checksum field should be zero
+  hdr->checksum = 0;
+
+  // For computing the checksum, if the total length is odd, the received data
+  // is padded with one octet of zeros
+  if (isodd(length)) {
+    pad(&data, sizeof(*data), 0, 1);
+    length += 1;
+  }
+
+  // The checksum is the 16-bit one's complement of the one's complement sum of
+  // the ICMP message starting with the ICMP Type
+  hdr->checksum = u16bit_ones_complement(
+      ones_complement_sum((const void *) &hdr->type, length));
+}
+
+void fill_icmp_echo_sender(Echo_or_Echo_Reply_Message_hdr *hdr, uint16_t length,
+                           int type_value) {
+  char *data = (char *) (hdr + 1);
+  // 8 for echo message;
+  // 0 for echo reply message.
+  hdr->type = type_value;
+
+  // Set code to 0
+  hdr->code = 0;
+
+  // If code equals 0, an identifier may be zero to help match echos and
+  // replies.
+  if (hdr->code == 0) {
+    hdr->identifier = 0;
+  }
+
+  // If code equals 0, a sequence number may be zero to help match echos and
+  // replies.
+  if (hdr->code == 0) {
+    hdr->sequence_number = 0;
+  }
+
+  // For computing the checksum, the checksum field should be zero
+  hdr->checksum = 0;
+
+  // For computing the checksum, if the total length is odd, the received data
+  // is padded with one octet of zeros
+  if (isodd(length)) {
+    pad(&data, sizeof(*data), 0, 1);
+    length += 1;
+  }
+
+  // The checksum is the 16-bit one's complement of the one's complement sum of
+  // the ICMP message starting with the ICMP Type
+  hdr->checksum = u16bit_ones_complement(
+      ones_complement_sum((const void *) &hdr->type, length));
+}
+
+#endif  // ICMP_GEN_H_

@@ -1,0 +1,27 @@
+* ditaa
+** repo
+https://github.com/stathissideris/ditaa
+
+** dl
+https://github.com/stathissideris/ditaa/releases/download/v0.11.0/ditaa-0.11.0-standalone.jar
+
+** cmd
+java -jar ditaa-0.11.0-standalone.jar --svg --no-shadows --transparent --overwrite XY.ascii XY.svg
+* a2s
+** repo
+https://github.com/asciitosvg/asciitosvg
+** cmd
+./a2s -b -i XY.ascii -o XY.svg
+
+* target output
+States: state_1 (DOWN), state_2 (UP), state_3 (INIT)
+Transitions: T11, T12, T13, T21, T22, T31, T32, T33 (where notation Txy means an arrow from state_x to state_y)
+Conditions:
+T11: UP, ADMIN DOWN, TIMER
+T12: INIT
+T13: DOWN
+T21: ADMIN DOWN, DOWN, TIMER
+T22: INIT, UP
+T31: ADMIN DOWN, TIMER
+T32: INIT, UP
+T33: DOWN

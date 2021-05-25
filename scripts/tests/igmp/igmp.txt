@@ -1,0 +1,57 @@
+
+INTERNET GROUP MANAGEMENT PROTOCOL
+
+
+       0                   1                   2                   3
+       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |Version| Type  |    Unused     |           Checksum            |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+      |                         Group Address                         |
+      +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+      Version
+
+         1
+
+      Type
+
+         There are two types of IGMP message of concern to hosts
+
+         1 = Host Membership Query,
+
+         2 = Host Membership Report.
+
+      Unused
+
+         Unused field is zeroed when sent. Unused field is ignored when received.
+
+      Checksum
+
+         The checksum is the 16-bit one's complement of the one's
+         complement sum of the IGMP message.  For computing
+         the checksum, the checksum field is zero.
+
+      Group Address
+
+         For a Host Membership Query message, the group address field
+         is zeroed when sent. The group address field is ignored when received.
+
+         For a Host Membership Report message, the group address field
+         holds the IP host group address of the group being reported.
+
+      Description
+
+         The Internet Group Management Protocol (IGMP) is used by IP hosts to
+         report their host group memberships to any immediately-neighboring
+         multicast routers.  IGMP is an asymmetric protocol and is specified
+         here from the point of view of a host, rather than a multicast
+         router.  (IGMP may also be used, symmetrically or asymmetrically,
+         between multicast routers.  Such use is not specified here.)
+
+         Like ICMP, IGMP is a integral part of IP.  It is required to be
+         implemented by all hosts conforming to level 2 of the IP multicasting
+         specification.  IGMP messages are encapsulated in IP datagrams, with
+         an IP protocol number of 2.  All IGMP messages of concern to hosts
+         have the following format:
+

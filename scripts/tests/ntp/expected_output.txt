@@ -1,0 +1,9 @@
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 2, 'duplicates': 2, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 2, 'duplicates': 2, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 2, 'duplicates': 2, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 1, 'duplicates': 1, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 2, 'duplicates': 2, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 1, 'duplicates': 1, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 2, 'sequence': 2, 'duplicates': 2, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 1, 'sequence': 1, 'duplicates': 1, 'unique': 1}
+LF check summary: {'base': 2, 'rules': 2, 'order': 1, 'sequence': 1, 'duplicates': 1, 'unique': 1}

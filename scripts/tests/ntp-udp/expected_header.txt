@@ -1,0 +1,11 @@
+#ifndef NTP_HDR_H_
+#define NTP_HDR_H_
+
+struct UDP_Header_Format_hdr {
+  uint16_t source_port;
+  uint16_t destination_port;
+  uint16_t length;
+  uint16_t checksum;
+};
+
+#endif  // NTP_HDR_H_

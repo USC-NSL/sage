@@ -1,0 +1,68 @@
+#ifndef IGMP_GEN_H_
+#define IGMP_GEN_H_
+
+void fill_igmp_igmp_query(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
+                          uint16_t length, int type_value, proto_ptr_t *ptrs) {
+  // Set version to 1
+  hdr->version = 1;
+
+  // Unused field is zeroed when sent
+  /*send*/
+  hdr->unused = 0;
+
+  // Unused field is ignored when received.
+  // The group address field is ignored when received.
+  /*receive*/
+  dummy_action();
+
+  // For a Host Membership Query message, the group address field is zeroed when
+  // sent
+  /*send*/
+  hdr->group_address = 0;
+
+  // 1 = Host Membership Query,
+  // 2 = Host Membership Report.
+  hdr->type = type_value;
+
+  // For computing the checksum, the checksum field is zero.
+  hdr->checksum = 0;
+
+  // The checksum is the 16-bit one's complement of the one's complement sum of
+  // the IGMP message
+  hdr->checksum =
+      u16bit_ones_complement(ones_complement_sum((const void *) hdr, length));
+}
+
+void fill_igmp_igmp_report(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
+                           uint16_t length, int type_value, proto_ptr_t *ptrs) {
+  // Set version to 1
+  hdr->version = 1;
+
+  // Unused field is zeroed when sent
+  /*send*/
+  hdr->unused = 0;
+
+  // Unused field is ignored when received.
+  // The group address field is ignored when received.
+  /*receive*/
+  dummy_action();
+
+  // 1 = Host Membership Query,
+  // 2 = Host Membership Report.
+  hdr->type = type_value;
+
+  // For a Host Membership Report message, the group address field holds the IP
+  // host group address of the group being reported.
+  hdr->group_address;
+  host_membership_report_message = find_group_addr(ptrs->ip_ptr);
+
+  // For computing the checksum, the checksum field is zero.
+  hdr->checksum = 0;
+
+  // The checksum is the 16-bit one's complement of the one's complement sum of
+  // the IGMP message
+  hdr->checksum =
+      u16bit_ones_complement(ones_complement_sum((const void *) hdr, length));
+}
+
+#endif  // IGMP_GEN_H_

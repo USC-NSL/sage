@@ -1,0 +1,13 @@
+#ifndef ICMP_HDR_H_
+#define ICMP_HDR_H_
+
+struct Echo_or_Echo_Reply_Message_hdr {
+  uint8_t type;
+  uint8_t code;
+  uint16_t checksum;
+  uint16_t identifier;
+  uint16_t sequence_number;
+  // char * data;
+};
+
+#endif  // ICMP_HDR_H_
