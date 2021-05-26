@@ -9,36 +9,8 @@ Experiments were tested in a test VM instantiated by the [Vagrantfile](/Vagrantf
 * [vagrant](https://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
 
-## Usage
-
-### Vagrant how-to
-Note: vagrant commands must be in the root of the cloned SAGE repo.
-
-#### To create/start the SAGE VM with the [Vagrantfile](/Vagrantfile):
-` vagrant up`
-
-The [vagrant up](https://www.vagrantup.com/docs/cli/up) command first creates a VM. After the second run, the command just starts it.
-
-* The VM creation requires an Internet connection and takes approx. 50 minutes (depends on your internet connection).
-
-* Starting the VM later is instantaneous.
-
-#### To login to the VM: 
-` vagrant ssh`
-
-To connect to the running VM, use the [vagrant ssh](https://www.vagrantup.com/docs/cli/ssh) command.
-
-#### To shutdown the VM:
-`vagrant halt`
-
-To halt the running VM, use the [vagrant halt](https://www.vagrantup.com/docs/cli/halt) command
-
-To remove the VM, use [vagrant destroy](https://www.vagrantup.com/docs/cli/destroy).
-
-#### SAGE in the VM:
-The SAGE directory on the host is available at `/sage/` in the VM. Please go to SAGE dir before running any experiment:
-`cd /sage`
-
+##  Vagrant Usage:
+Please refer to the [howto](/installation_vagrant_readme.md)
 
 ### Executing Experiments
 
