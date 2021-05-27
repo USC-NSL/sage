@@ -42,11 +42,16 @@ def diff_pick(first_ls: list, word: str) -> tuple:
         return True, first_ls[index]
     return False, first_ls[index]
 
+
 def similarity_lsmap(first_ls: list, second_ls: list) -> list:
     """
-    Input: two lists
-                 first_ls should be the db fields
-                 second_ls should be the paragraph titles
+
+    Parameter:
+    first_ls (list): database fields
+    second_ls (list): paragraph titles
+
+    Returns:
+    matrix (list): similarity matrix
     """
     nlp = spacy.load('en_core_web_md')
     matrix = []
@@ -62,15 +67,17 @@ def similarity_lsmap(first_ls: list, second_ls: list) -> list:
 
 def similarity_map(first_ls: list, word: str) -> tuple:
     """
-    Input: one string and one list
-                 first_ls should be the db field
-                 word is the string that needs to be matched
+    Parameters:
+    first_ls (list): database fields
+    word (str): string that needs to be matched
+
+    Returns:
+    a (bool,str) tuple indicating good match and the matching word
     """
     nlp = spacy.load('en_core_web_md')
     token = nlp(word)
     candidate = [token.similarity(nlp(elem)) for elem in first_ls]
     index = candidate.index(max(candidate))
-    # print('index', str(index), 'similarity: ', candidate[index])
     good_match = False
     if candidate[index] > 0.5:
         print("Find candidate:", first_ls[index])
@@ -99,6 +106,7 @@ def similarity_select(ls: list, word_list: list) -> list:
             failed.append(word)
     print(failed)
     return failed
+
 
 if __name__ == '__main__':
     similarity_map(['icmp_type', 'checksum'], 'checksum_field')
