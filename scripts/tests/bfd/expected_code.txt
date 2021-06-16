@@ -1,0 +1,71 @@
+#ifndef BFD_GEN_H_
+#define BFD_GEN_H_
+
+#include "BFD_hdr.h"
+#include "helper.h"
+#include "meta.h"
+
+void BFD_state_manage(struct Generic_BFD_Control_Packet_Format_hdr *hdr,
+                      struct BFD_var BFD, struct Packet packet) {
+  if (hdr->vers != 1) {
+    drop(packet);
+  }
+  if (hdr->length <= 24) {
+    drop(packet);
+  }
+  if (hdr->length >= encapsulating_protocol.payload) {
+    drop(packet);
+  }
+  if (hdr->detect_mult == 0) {
+    drop(packet);
+  }
+  if (hdr->m != 0) {
+    drop(packet);
+  }
+  if (hdr->my_discriminator == 0) {
+    drop(packet);
+  }
+  if (hdr->your_discriminator != 0) {
+    packet.session = select(hdr->your_discriminator);
+  }
+  if (packet.session == null && hdr->your_discriminator != 0) {
+    drop(packet);
+  }
+  if ((state_field != AdminDown) ||
+      (state_field != Down) && hdr->your_discriminator == 0) {
+    drop(packet);
+  }
+  if (bfd.AuthType == 0 && hdr->a != 0) {
+    drop(packet);
+  }
+  if (bfd.AuthType != 0 && hdr->a == 0) {
+    drop(packet);
+  }
+  bfd.RemoteDiscr = hdr->my_discriminator;
+
+  bfd.RemoteState = hdr->sta;
+
+  bfd.RemoteDemandMode = hdr->d;
+
+  bfd.RemoteMinRxInterval = hdr->required_min_rx_interval;
+
+  if (hdr->required_min_echo_rx_interval == 0) {
+    stop(echo_packets.transmission);
+  }
+  if (received_packet.hdr->f != 0) {
+    stop(poll_sequence);
+  }
+  Update(transmit_interval);
+
+  Update(detection_time);
+
+  if (bfd.RemoteSessionState == Up && bfd.SessionState == Up &&
+      bfd.RemoteDemandMode == 1) {
+    stop(bfd_control_packets.transmission);
+  }
+  if (bfd.RemoteSessionState != Up || bfd.SessionState != Up ||
+      bfd.RemoteDemandMode == 0) {
+    send(bfd_control_packets);
+  }
+}
+#endif  // BFD_GEN_H_

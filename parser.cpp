@@ -199,6 +199,14 @@ int main(int argc, char* argv[]) {
     const std::string outfile = path_name + "/" + proto_name + "_gen.h";
     const std::string fieldfile = path_name + "/" + proto_name + "_fields.txt";
     add_head_include_guard(outfile, proto_name + "_GEN_H_");
+    add_include_guard(outfile, "helper.h");
+    add_include_guard(outfile, "meta.h");
+    add_include_guard(outfile, proto_name + "_hdr.h");
+
+    const std::set<std::string> msg_names = get_msg_types(proto_name);
+    auto msg_name = msg_names.begin();
+    add_func_def(outfile, proto_name, *msg_name);
+
     for (cnt = 0; cnt < paragraph_bank.size(); cnt++) {
       // fill in the necessary arguments
       paragraph_bank[cnt].ir_ =
@@ -208,7 +216,10 @@ int main(int argc, char* argv[]) {
       }
       gen_state_management_code(paragraph_bank[cnt].ir_, outfile);
     }
+    add_func_close(outfile);
     add_tail_include_guard(outfile, proto_name + "_GEN_H_");
+
+    format_final_code(outfile);
     return 0;
   }
 

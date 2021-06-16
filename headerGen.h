@@ -77,6 +77,12 @@ void add_tail_include_guard(std::string file_name, std::string header_line) {
   fp.close();
 }
 
+void add_include_guard(std::string file_name, std::string line_to_add) {
+  std::ofstream fp(file_name, std::ofstream::app);
+  fp << "#include \"" + line_to_add + "\"\n";
+  fp.close();
+}
+
 void sanitize_name(std::string& name) {
   // remove illegal characters from name
   const std::string illegal_chars = "\\/:?\"'@#%/^!~<>|{}()[]";

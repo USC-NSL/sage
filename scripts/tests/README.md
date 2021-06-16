@@ -9,7 +9,7 @@
 | IGMP      | igmp      | x              | x                  |                  |    2 min       |
 | NTP       | ntp       | x              | x                  | x                |    6 min       |
 | NTP UDP   | ntp-udp   | x              | x                  |                  |    3 min       |
-| BFD       | bfd       | x              | x                  |                  |    6 min       |
+| BFD       | bfd       | x              | x                  | x                |    6 min       |
 | Echo interop |   echo |                |                    |                  |    depends     |
 
 ## Executing a Test

@@ -56,8 +56,5 @@ State machine
 	bfd.RemoteSessionState is not Up, the local system MUST periodically send BFD Control
 	packets.
 
-	If the P_field is set, the local system sends a BFD Control packet to the
-	remote system with the P_field clear and the F_field
-	set.
 
 

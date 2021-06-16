@@ -34,6 +34,9 @@
 #include <string>
 #include <vector>
 
+#include "./headerGen.h"
+#include "./register_meta.h"
+
 std::vector<std::string> state_process(std::string text,
                                        std::string path_name) {
   std::vector<std::string> IR;
@@ -123,6 +126,24 @@ std::vector<std::string> state_process(std::string text,
   return IR;
 }
 
+void add_func_def(std::string filename, std::string proto_name,
+                  std::string msg_name) {
+  std::ofstream fp(filename, std::ofstream::app);
+  sanitize_name(msg_name);
+  msg_name = space2underscore(msg_name);
+  fp << "\n";
+  fp << " void " + proto_name + "_state_manage( struct " + msg_name +
+            "_hdr *hdr, struct " + proto_name + "_var " + proto_name +
+            ", struct Packet packet){\n";
+  fp.close();
+}
+
+void add_func_close(std::string filename) {
+  std::ofstream fp(filename, std::ofstream::app);
+  fp << "}\n";
+  fp.close();
+}
+
 void gen_state_management_code(std::vector<std::string> IR,
                                std::string outfile) {
   std::string cmd;
@@ -134,6 +155,12 @@ void gen_state_management_code(std::vector<std::string> IR,
           "\" -o \"" + outfile + "\";";
     exec_command(cmd);
   }
+}
+
+void format_final_code(std::string file_name) {
+  std::string cmd;
+  cmd = "clang-format -style=file -i " + file_name + ";";
+  exec_command(cmd);
 }
 
 void concate_dynamic_term(std::string varfile, std::string fieldfile,
