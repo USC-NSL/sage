@@ -27,11 +27,27 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-echo : main.cpp
-	g++ -o echo main.cpp
+WARNINGS=-Wall
+OPT_LVL=0
+CXX=g++
+CXXFLAGS= $(WARNINGS) -O$(OPT_LVL) --std=c++11
+LIBS=-lnetfilter_queue
+
+.PHONY: clean purge format
+
+default: build
+
+build: echo
+
+echo: main.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LIBS)
 
 format:
-	clang-format -style=Google -i *.h *.cpp
+	clang-format --style=file -i *.cpp
+	clang-format --style=file -i *.h
 
-clean :
-	rm -f echo *.pcap
+clean:
+	rm -f *.pcap
+
+purge: clean
+	rm -f echo

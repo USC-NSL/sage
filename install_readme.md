@@ -4,7 +4,7 @@ Below are the instructions to install SAGE on fresh VM.
 ### 1. Install Dependencies
 - Debian/Ubuntu packages
 ``` sh
-sudo apt install build-essential python3-pip clang-format libsqlite3-dev libpcap-dev git
+sudo apt install build-essential python3-pip clang-format libsqlite3-dev libpcap-dev libnetfilter-queue-dev git
 ```
 For Ubuntu, enable the universe distribution component ([howto](https://askubuntu.com/questions/1254309/not-installing-pip-on-ubuntu-20-04)).
 
@@ -51,4 +51,3 @@ git clone https://github.com/USC-NSL/sage.git
 cd sage
 make build
 ```
-

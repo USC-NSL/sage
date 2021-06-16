@@ -32,6 +32,8 @@
 
 #include <string>
 
+#include "./helper.h"
+
 enum emulate_cases {
   base_case = 1,
   info_request = 2,
@@ -51,19 +53,20 @@ void sender_code_template() {
   };
   uint16_t len = sizeof(ether_hdr_t) + sizeof(ip_hdr_t) +
                  sizeof(Echo_or_Echo_Reply_Message_hdr) + sizeof(payload);
-  char* buffer = (char*)malloc(len);
-  ether_hdr_t* eth_hdr = (ether_hdr_t*)buffer;
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)(buffer + sizeof(ether_hdr_t));
+  char* buffer = (char*) malloc(len);
+  ether_hdr_t* eth_hdr = (ether_hdr_t*) buffer;
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) (buffer + sizeof(ether_hdr_t));
   Echo_or_Echo_Reply_Message_hdr* icmp_hdr =
-      (Echo_or_Echo_Reply_Message_hdr*)(buffer + sizeof(ether_hdr_t) +
-                                        sizeof(ip_hdr_t));
+      (Echo_or_Echo_Reply_Message_hdr*) (buffer + sizeof(ether_hdr_t) +
+                                         sizeof(ip_hdr_t));
   char* pkt_payload = buffer + sizeof(ether_hdr_t) + sizeof(ip_hdr_t) +
                       sizeof(Echo_or_Echo_Reply_Message_hdr);
   memcpy(pkt_payload, payload, sizeof(payload));
 
-  proto_len_t lens = {len, len - (int)sizeof(ether_hdr_t),
-                      len - (int)sizeof(ether_hdr_t) - (int)sizeof(ip_hdr_t)};
-  proto_ptr_t ptrs = {(uint8_t*)buffer, (uint8_t*)ip_hdr, (uint8_t*)icmp_hdr};
+  proto_len_t lens = {len, len - (int) sizeof(ether_hdr_t),
+                      len - (int) sizeof(ether_hdr_t) - (int) sizeof(ip_hdr_t)};
+  proto_ptr_t ptrs = {(uint8_t*) buffer, (uint8_t*) ip_hdr,
+                      (uint8_t*) icmp_hdr};
 
   fill_ether(eth_hdr);
 
@@ -74,7 +77,7 @@ void sender_code_template() {
               sizeof(payload),
           tos);
 
-  char* buf = (char*)malloc(len);
+  char* buf = (char*) malloc(len);
   Information_Request_or_Information_Reply_Message_hdr* info_ptr;
   INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr* igmp_ptr;
   // change scenario value to emulate info request, igmp_request, base_case
@@ -82,11 +85,11 @@ void sender_code_template() {
   switch (scenario) {
     case info_request:
       info_ptr =
-          (Information_Request_or_Information_Reply_Message_hdr*)(buffer +
-                                                                  sizeof(
-                                                                      ether_hdr_t) +
-                                                                  sizeof(
-                                                                      ip_hdr_t));
+          (Information_Request_or_Information_Reply_Message_hdr*) (buffer +
+                                                                   sizeof(
+                                                                       ether_hdr_t) +
+                                                                   sizeof(
+                                                                       ip_hdr_t));
       fill_icmp_info_receiver(
           info_ptr,
           sizeof(Information_Request_or_Information_Reply_Message_hdr) +
@@ -102,12 +105,13 @@ void sender_code_template() {
       update_ip_checksum(ip_hdr);
       memcpy(buf, buffer, len);
       len = len + sizeof(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr);
-      buffer = (char*)realloc(buffer, len);
+      buffer = (char*) realloc(buffer, len);
       memcpy(buffer, buf, sizeof(ether_hdr_t) + sizeof(ip_hdr_t));
       free(buf);
-      igmp_ptr = (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*)(buffer +
-                                                           sizeof(ether_hdr_t) +
-                                                           sizeof(ip_hdr_t));
+      igmp_ptr =
+          (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*) (buffer +
+                                                     sizeof(ether_hdr_t) +
+                                                     sizeof(ip_hdr_t));
       fill_igmp_igmp_sender(igmp_ptr, len, 1);
       break;
 

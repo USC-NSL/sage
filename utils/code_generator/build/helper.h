@@ -37,10 +37,10 @@
 
 #include <string>
 
-#include "common.h"
-#include "icmp_hdr.h"
-#include "meta.h"
-#include "proto.h"
+#include "./common.h"
+#include "./icmp_hdr.h"
+#include "./meta.h"
+#include "./proto.h"
 
 #define RECV_BUF_SIZE 256
 
@@ -103,7 +103,7 @@ uint32_t find_gateway(uint8_t* ip_ptr) {
   // address from ip header pointed by argument
   // 'ip_ptr'
 
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)ip_ptr;
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) ip_ptr;
   uint32_t addr = ip_hdr->ip_dst;
   uint32_t subnet = addr & 0x00FFFFFF;
   uint32_t match_addr;
@@ -125,7 +125,7 @@ uint32_t find_group_addr(uint8_t* ip_ptr) {
   // Return the registered group address for the dest
   // address from ip header pointed by argument 'ip_ptr'
 
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)ip_ptr;
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) ip_ptr;
   uint32_t addr = ip_hdr->ip_dst;
   uint32_t subnet = addr & 0x00FFFFFF;
   uint32_t match_addr;
@@ -175,7 +175,7 @@ void update_ip_checksum(ip_hdr_t* hdr) {
 
   hdr->ip_sum = 0;
   uint16_t result = u16bit_ones_complement(
-      ones_complement_sum((const void*)hdr, sizeof(struct ip_hdr)));
+      ones_complement_sum((const void*) hdr, sizeof(struct ip_hdr)));
   hdr->ip_sum = result;
 }
 
@@ -236,14 +236,13 @@ void fake_fill_icmp(Echo_or_Echo_Reply_Message_hdr* hdr, uint8_t type,
   hdr->sequence_number = htons(1);
 
   if (isodd(length)) {
-    char* data = (char*)(hdr + 1);
-    pad((char**)&ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
-    char* new_head = (char*)malloc(length + 1);
+    char* data = (char*) (hdr + 1);
+    pad((char**) &ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
     hdr->checksum = u16bit_ones_complement(
-        ones_complement_sum((const void*)hdr, length + 1));
+        ones_complement_sum((const void*) hdr, length + 1));
   } else {
     uint16_t result =
-        u16bit_ones_complement(ones_complement_sum((const void*)hdr, length));
+        u16bit_ones_complement(ones_complement_sum((const void*) hdr, length));
     hdr->checksum = result;
   }
 }
@@ -312,10 +311,10 @@ int read_pkt(char** pkt) {
   // and trim away pcap header to keep packet content only at the
   // argument 'pkt'. Return the read in packet size.
 
-  char* buffer = (char*)malloc(RECV_BUF_SIZE);
+  char* buffer = (char*) malloc(RECV_BUF_SIZE);
   int len = read_pcap_to_buf(buffer);
   int pkt_len = len - 40;
-  *pkt = (char*)malloc(pkt_len);
+  *pkt = (char*) malloc(pkt_len);
   memcpy(*pkt, buffer + 40, pkt_len);
 
   printf("pkt size %d\n", pkt_len);

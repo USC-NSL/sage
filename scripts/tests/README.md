@@ -4,17 +4,18 @@
 
 | Name      | Test Dir  | Checks<br />LF | Checks<br />Header | Checks<br />Code | Execution Time |
 |:----------|:----------|:--------------:|:------------------:|:----------------:|---------------:|
-| ICMP Echo | echo      | x              | x                  | x                |    3 min       |
+| ICMP Echo | icmp-echo | x              | x                  | x                |    3 min       |
 | ICMP      | icmp      | x              | x                  | x                |   19 min       |
 | IGMP      | igmp      | x              | x                  |                  |    2 min       |
 | NTP       | ntp       | x              | x                  | x                |    6 min       |
 | NTP UDP   | ntp-udp   | x              | x                  |                  |    3 min       |
 | BFD       | bfd       | x              | x                  |                  |    6 min       |
+| Echo interop |   echo |                |                    |                  |    depends     |
 
 ## Executing a Test
 
-Navigate to a test folder and execute `run.sh`.
-Tests print either `OK` or `FAIL` depending on the test result.
+Navigate to a test folder and execute `run.sh` or follow the `README`.
+Scripted tests print either `OK` or `FAIL` depending on the test result.
 
 Example:
 ```sh

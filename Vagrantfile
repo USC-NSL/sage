@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
          clang-format \
          libsqlite3-dev \
          libpcap-dev \
+         libnetfilter-queue-dev \
          git
   SHELL
 

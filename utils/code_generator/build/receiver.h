@@ -32,13 +32,15 @@
 
 #include <string>
 
+#include "./helper.h"
+
 void construct_reply(int, proto_len_t*, proto_ptr_t*);
 
 bool verify_eth_hdr(uint8_t* hdr_ptr, int len) {
   // Return true if the argument 'len' is large
   // enough to hold an ethernet header struct
 
-  if (len < sizeof(ether_hdr_t)) {
+  if (len < (int) sizeof(ether_hdr_t)) {
     drop();
     return false;
   }
@@ -51,25 +53,25 @@ bool verify_ip_hdr(uint8_t* hdr_ptr, int len, proto_len_t* lens,
   // enough to hold an ip header struct, and if
   // the ip checksum is computed correctly.
 
-  if (len < sizeof(ip_hdr_t)) {
+  if (len < (int) sizeof(ip_hdr_t)) {
     drop();
     return false;
   }
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)hdr_ptr;
-  ip_hdr_t* cpy_buf = (ip_hdr_t*)malloc(sizeof(ip_hdr_t));
-  memcpy(cpy_buf, ip_hdr, sizeof(ip_hdr_t));
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) hdr_ptr;
+  ip_hdr_t* cpy_buf = (ip_hdr_t*) malloc((int) sizeof(ip_hdr_t));
+  memcpy(cpy_buf, ip_hdr, (int) sizeof(ip_hdr_t));
   cpy_buf->ip_sum = 0;
   uint16_t cksum = u16bit_ones_complement(
-      ones_complement_sum((const void*)cpy_buf, sizeof(struct ip_hdr)));
+      ones_complement_sum((const void*) cpy_buf, (int) sizeof(struct ip_hdr)));
   if (cksum != ip_hdr->ip_sum) {
     return false;
   }
 
-  if (!match_if(ip_hdr->ip_dst)) {
-    printf("Packet is dest unreachable\n");
-    construct_reply(3, lens, ptrs);
-    return false;
-  }
+  // if (!match_if(ip_hdr->ip_dst)) {
+  //   printf("Packet is dest unreachable\n");
+  //   construct_reply(3, lens, ptrs);
+  //   return false;
+  // }
 
   if (same_subnet(ip_hdr->ip_dst, interface_1_addr)) {
     printf("Packet needs to be redirected\n");
@@ -94,23 +96,23 @@ bool verify_ip_hdr(uint8_t* hdr_ptr, int len, proto_len_t* lens,
 
 bool verify_icmp_hdr(uint8_t* hdr_ptr, int len) {
   // Return true if the argument 'len' is large enough
-  // to hold icmp echo message header and verify if
+  // to hold icmp echo/echo-reply message header and verify if
   // each field value is a valid/correct value
 
-  if (len < sizeof(Echo_or_Echo_Reply_Message_hdr)) {
+  if (len < (int) sizeof(Echo_or_Echo_Reply_Message_hdr)) {
     drop();
     return false;
   }
   Echo_or_Echo_Reply_Message_hdr* echo_ptr =
-      (Echo_or_Echo_Reply_Message_hdr*)hdr_ptr;
-  if (!echo_ptr->code == 0) return false;
-  if (!echo_ptr->type == 8 && !echo_ptr->type == 0) return false;
+      (Echo_or_Echo_Reply_Message_hdr*) hdr_ptr;
+  if (!(echo_ptr->code == 0)) return false;
+  if (!(echo_ptr->type == 8 || echo_ptr->type == 0)) return false;
   Echo_or_Echo_Reply_Message_hdr* cpy_buf =
-      (Echo_or_Echo_Reply_Message_hdr*)malloc(len);
+      (Echo_or_Echo_Reply_Message_hdr*) malloc(len);
   memcpy(cpy_buf, hdr_ptr, len);
   cpy_buf->checksum = 0;
   uint16_t cksum =
-      u16bit_ones_complement(ones_complement_sum((const void*)cpy_buf, len));
+      u16bit_ones_complement(ones_complement_sum((const void*) cpy_buf, len));
   if (cksum == echo_ptr->checksum)
     return true;
   else
@@ -122,7 +124,7 @@ bool verify_igmp_hdr(uint8_t* hdr_ptr, int len) {
   // to hold igmp message header and verify if
   // each field value is a valid/correct value
 
-  if (len < sizeof(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr)) {
+  if (len < (int) sizeof(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr)) {
     drop();
     return false;
   }
@@ -136,12 +138,12 @@ void eth_action(valid_proto_t* flags, proto_len_t* lens, proto_ptr_t* ptrs) {
   // length starting from ip header to the tail of packet, update pointer
   // to the beginning address of ip header.
 
-  ether_hdr_t* eth_hdr = (ether_hdr_t*)ptrs->eth_ptr;
+  ether_hdr_t* eth_hdr = (ether_hdr_t*) ptrs->eth_ptr;
   switch (ntohs(eth_hdr->ether_type)) {
     case ethertype_ip:
       flags->ip = true;
-      lens->ip_len = lens->eth_len - sizeof(ether_hdr_t);
-      ptrs->ip_ptr = ptrs->eth_ptr + sizeof(ether_hdr_t);
+      lens->ip_len = lens->eth_len - (int) sizeof(ether_hdr_t);
+      ptrs->ip_ptr = ptrs->eth_ptr + (int) sizeof(ether_hdr_t);
       break;
     default:
       drop();
@@ -154,20 +156,20 @@ void ip_action(valid_proto_t* flags, proto_len_t* lens, proto_ptr_t* ptrs) {
   // length starting from icmp header to the tail of packet, update pointer
   // to the beginning address of icmp header.
 
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)ptrs->ip_ptr;
-  if (ip_hdr->ip_dst != interface_1_addr) {
-    return;
-  }
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) ptrs->ip_ptr;
+  // if (ip_hdr->ip_dst != interface_1_addr) {
+  //   return;
+  // }
   switch (ip_hdr->ip_p) {
     case ip_protocol_icmp:
       flags->icmp = true;
-      lens->icmp_len = lens->ip_len - sizeof(ip_hdr_t);
-      ptrs->icmp_ptr = ptrs->ip_ptr + sizeof(ip_hdr_t);
+      lens->icmp_len = lens->ip_len - (int) sizeof(ip_hdr_t);
+      ptrs->icmp_ptr = ptrs->ip_ptr + (int) sizeof(ip_hdr_t);
       break;
     case ip_protocol_igmp:
       flags->igmp = true;
-      lens->igmp_len = lens->ip_len - sizeof(ip_hdr_t);
-      ptrs->igmp_ptr = ptrs->ip_ptr + sizeof(ip_hdr_t);
+      lens->igmp_len = lens->ip_len - (int) sizeof(ip_hdr_t);
+      ptrs->igmp_ptr = ptrs->ip_ptr + (int) sizeof(ip_hdr_t);
       break;
     default:
       drop();
@@ -180,19 +182,19 @@ void construct_reply(int type, proto_len_t* lens, proto_ptr_t* ptrs) {
   // of header to packet tail is kept in argument struct 'lens'
 
   printf("Construct Reply Packet ... \n");
-  char* buffer = (char*)malloc(lens->eth_len);
+  char* buffer = (char*) malloc(lens->eth_len);
   memcpy(buffer, ptrs->eth_ptr, lens->eth_len);
   // update ethernet header
 
   // update ip header
-  ip_hdr_t* ip_hdr = (ip_hdr_t*)(buffer + sizeof(ether_hdr_t));
+  ip_hdr_t* ip_hdr = (ip_hdr_t*) (buffer + (int) sizeof(ether_hdr_t));
 
   // update icmp header
   switch (type) {
     case 0:
       reverse_ip(ip_hdr);
       update_ip_checksum(ip_hdr);
-      fake_fill_icmp((Echo_or_Echo_Reply_Message_hdr*)(ip_hdr + 1), 0,
+      fake_fill_icmp((Echo_or_Echo_Reply_Message_hdr*) (ip_hdr + 1), 0,
                      lens->icmp_len, lens, ptrs);
       break;
 
@@ -201,32 +203,34 @@ void construct_reply(int type, proto_len_t* lens, proto_ptr_t* ptrs) {
       ip_hdr->ip_src = interface_1_addr;
       update_ip_checksum(ip_hdr);
       fill_icmp_dest_unreachable_receiver(
-          (Destination_Unreachable_Message_hdr*)(ip_hdr + 1),
-          lens->ip_len - sizeof(ip_hdr_t), 0, ptrs);
+          (Destination_Unreachable_Message_hdr*) (ip_hdr + 1),
+          lens->ip_len - (int) sizeof(ip_hdr_t), 0, ptrs);
       break;
 
     case 4:
       ip_hdr->ip_dst = ip_hdr->ip_src;
       ip_hdr->ip_src = interface_1_addr;
       update_ip_checksum(ip_hdr);
-      fill_icmp_source_quench_receiver((Source_Quench_Message_hdr*)(ip_hdr + 1),
-                                       lens->ip_len - sizeof(ip_hdr_t), ptrs);
+      fill_icmp_source_quench_receiver(
+          (Source_Quench_Message_hdr*) (ip_hdr + 1),
+          lens->ip_len - (int) sizeof(ip_hdr_t), ptrs);
       break;
 
     case 5:
       ip_hdr->ip_dst = ip_hdr->ip_src;
       ip_hdr->ip_src = interface_1_addr;
       update_ip_checksum(ip_hdr);
-      fill_icmp_redir_receiver((Redirect_Message_hdr*)(ip_hdr + 1),
-                               lens->ip_len - sizeof(ip_hdr_t), 0, ptrs);
+      fill_icmp_redir_receiver((Redirect_Message_hdr*) (ip_hdr + 1),
+                               lens->ip_len - (int) sizeof(ip_hdr_t), 0, ptrs);
       break;
 
     case 11:
       ip_hdr->ip_dst = ip_hdr->ip_src;
       ip_hdr->ip_src = interface_1_addr;
       update_ip_checksum(ip_hdr);
-      fill_icmp_time_exceed_receiver((Time_Exceeded_Message_hdr*)(ip_hdr + 1),
-                                     lens->ip_len - sizeof(ip_hdr_t), 0, ptrs);
+      fill_icmp_time_exceed_receiver((Time_Exceeded_Message_hdr*) (ip_hdr + 1),
+                                     lens->ip_len - (int) sizeof(ip_hdr_t), 0,
+                                     ptrs);
       break;
 
     case 12:
@@ -234,23 +238,24 @@ void construct_reply(int type, proto_len_t* lens, proto_ptr_t* ptrs) {
       ip_hdr->ip_src = interface_1_addr;
       ip_hdr->ip_tos = 0;
       update_ip_checksum(ip_hdr);
-      fill_icmp_para_prob_receiver((Parameter_Problem_Message_hdr*)(ip_hdr + 1),
-                                   lens->ip_len - sizeof(ip_hdr_t), ptrs);
+      fill_icmp_para_prob_receiver(
+          (Parameter_Problem_Message_hdr*) (ip_hdr + 1),
+          lens->ip_len - (int) sizeof(ip_hdr_t), ptrs);
       break;
 
     case 16:
       reverse_ip(ip_hdr);
       update_ip_checksum(ip_hdr);
       fill_icmp_info_receiver(
-          (Information_Request_or_Information_Reply_Message_hdr*)(ip_hdr + 1),
+          (Information_Request_or_Information_Reply_Message_hdr*) (ip_hdr + 1),
           lens->icmp_len, 16);
 
     case igmp_construct_reply:
       reverse_ip(ip_hdr);
       update_ip_checksum(ip_hdr);
       fill_igmp_igmp_receiver(
-          (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*)(ip_hdr + 1),
-          lens->ip_len - sizeof(ip_hdr_t), igmp_report, ptrs);
+          (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*) (ip_hdr + 1),
+          lens->ip_len - (int) sizeof(ip_hdr_t), igmp_report, ptrs);
   }
 
   std::string out_file = "recv_pkt.pcap";
@@ -278,7 +283,7 @@ void icmp_action(valid_proto_t* flags, proto_len_t* lens, proto_ptr_t* ptrs) {
   }
 
   Echo_or_Echo_Reply_Message_hdr* icmp_hdr =
-      (Echo_or_Echo_Reply_Message_hdr*)ptrs->icmp_ptr;
+      (Echo_or_Echo_Reply_Message_hdr*) ptrs->icmp_ptr;
   switch (icmp_hdr->type) {
     case 8:
       printf("recv pkt is echo msg\n");
@@ -300,7 +305,7 @@ void icmp_action(valid_proto_t* flags, proto_len_t* lens, proto_ptr_t* ptrs) {
 
 void igmp_action(valid_proto_t* flags, proto_len_t* lens, proto_ptr_t* ptrs) {
   INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr* hdr =
-      (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*)(ptrs->igmp_ptr);
+      (INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr*) (ptrs->igmp_ptr);
 
   switch (hdr->type) {
     case igmp_query:
@@ -323,10 +328,10 @@ void receiver_code_template(char* recv_pkt, int len) {
   // initialize metadata
   valid_proto_t flags = {true, false, false, false};
   proto_len_t lens = {len, 0, 0, 0};
-  proto_ptr_t ptrs = {(uint8_t*)recv_pkt, nullptr, nullptr, nullptr};
+  proto_ptr_t ptrs = {(uint8_t*) recv_pkt, nullptr, nullptr, nullptr};
 
   if (flags.eth) {
-    ptrs.eth_ptr = (uint8_t*)recv_pkt;
+    ptrs.eth_ptr = (uint8_t*) recv_pkt;
     bool eth_process = verify_eth_hdr(ptrs.eth_ptr, lens.eth_len);
     if (eth_process) {
       printf("Pass verifying ethernet hdr...\n");

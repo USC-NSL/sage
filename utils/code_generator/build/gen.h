@@ -30,18 +30,18 @@
 #ifndef GEN_H_
 #define GEN_H_
 
-#include "helper.h"
-#include "icmp_hdr.h"
-#include "igmp_hdr.h"
-#include "meta.h"
-#include "proto.h"
+#include "./helper.h"
+#include "./icmp_hdr.h"
+#include "./igmp_hdr.h"
+#include "./meta.h"
+#include "./proto.h"
 
 void fill_icmp_dest_unreachable_receiver(
     Destination_Unreachable_Message_hdr *hdr, uint16_t length, int code_value,
     proto_ptr_t *ptrs) {
-  char *payload = (char *)(hdr + 1);
+  char *payload = (char *) (hdr + 1);
   // The source network and address from the original datagram's data
-  copy(&payload, (char *)ptrs->ip_ptr, 28);
+  copy(&payload, (char *) ptrs->ip_ptr, 28);
   // Set type to 3
   hdr->type = 3;
   // 0 = net unreachable;
@@ -56,13 +56,13 @@ void fill_icmp_dest_unreachable_receiver(
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_echo_receiver(Echo_or_Echo_Reply_Message_hdr *hdr,
                              uint16_t length, int type_value, proto_len_t *lens,
                              proto_ptr_t *ptrs) {
-  char *data = (char *)(hdr + 1);
+  char *data = (char *) (hdr + 1);
   // 0 for echo reply message
   hdr->type = type_value;
   // Set code to 0
@@ -81,19 +81,19 @@ void fill_icmp_echo_receiver(Echo_or_Echo_Reply_Message_hdr *hdr,
   // For computing the checksum, if the total length is odd, the received data
   // is padded with one octet of zeros
   if (isodd(length)) {
-    pad((char **)&ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
+    pad((char **) &ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
     length += 1;
   }
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_echo_sender(Echo_or_Echo_Reply_Message_hdr *hdr, uint16_t length,
                            int type_value, proto_len_t *lens,
                            proto_ptr_t *ptrs) {
-  char *data = (char *)(hdr + 1);
+  char *data = (char *) (hdr + 1);
   // 8 for echo message;
   // 0 for echo reply message
   hdr->type = type_value;
@@ -113,13 +113,13 @@ void fill_icmp_echo_sender(Echo_or_Echo_Reply_Message_hdr *hdr, uint16_t length,
   // For computing the checksum, if the total length is odd, the received data
   // is padded with one octet of zeros
   if (isodd(length)) {
-    pad((char **)&ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
+    pad((char **) &ptrs->eth_ptr, lens->eth_len, sizeof(*data), '0', 1);
     length += 1;
   }
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_info_receiver(
@@ -145,14 +145,14 @@ void fill_icmp_info_receiver(
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_para_prob_receiver(Parameter_Problem_Message_hdr *hdr,
                                   uint16_t length, proto_ptr_t *ptrs) {
-  char *payload = (char *)(hdr + 1);
+  char *payload = (char *) (hdr + 1);
   // The source network and address from the original datagram's data
-  copy(&payload, (char *)ptrs->ip_ptr, 28);
+  copy(&payload, (char *) ptrs->ip_ptr, 28);
   // Set type to 12
   hdr->type = 12;
   // 0 = pointer indicates the error
@@ -162,14 +162,14 @@ void fill_icmp_para_prob_receiver(Parameter_Problem_Message_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_redir_receiver(Redirect_Message_hdr *hdr, uint16_t length,
                               int code_value, proto_ptr_t *ptrs) {
-  char *payload = (char *)(hdr + 1);
+  char *payload = (char *) (hdr + 1);
   // The source network and address of the original datagram's data
-  copy(&payload, (char *)ptrs->ip_ptr, 28);
+  copy(&payload, (char *) ptrs->ip_ptr, 28);
   // Set type to 5
   hdr->type = 5;
   // 0 = Redirect datagrams for the Network
@@ -185,14 +185,14 @@ void fill_icmp_redir_receiver(Redirect_Message_hdr *hdr, uint16_t length,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_source_quench_receiver(Source_Quench_Message_hdr *hdr,
                                       uint16_t length, proto_ptr_t *ptrs) {
-  char *payload = (char *)(hdr + 1);
+  char *payload = (char *) (hdr + 1);
   // The source network and address of the original datagram's data
-  copy(&payload, (char *)ptrs->ip_ptr, 28);
+  copy(&payload, (char *) ptrs->ip_ptr, 28);
   // Set type to 4
   hdr->type = 4;
   // Set code to 0
@@ -202,15 +202,15 @@ void fill_icmp_source_quench_receiver(Source_Quench_Message_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_time_exceed_receiver(Time_Exceeded_Message_hdr *hdr,
                                     uint16_t length, int code_value,
                                     proto_ptr_t *ptrs) {
-  char *payload = (char *)(hdr + 1);
+  char *payload = (char *) (hdr + 1);
   // The source network and address from the original datagram's data
-  copy(&payload, (char *)ptrs->ip_ptr, 28);
+  copy(&payload, (char *) ptrs->ip_ptr, 28);
   // Set type to 11
   hdr->type = 11;
   // 0 = time to live exceeded in transit;
@@ -221,7 +221,7 @@ void fill_icmp_time_exceed_receiver(Time_Exceeded_Message_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_timestamp_receiver(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
@@ -245,7 +245,7 @@ void fill_icmp_timestamp_receiver(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_icmp_timestamp_sender(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
@@ -270,7 +270,7 @@ void fill_icmp_timestamp_sender(Timestamp_or_Timestamp_Reply_Message_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the ICMP message starting with the ICMP Type
   hdr->checksum = u16bit_ones_complement(
-      ones_complement_sum((const void *)&hdr->type, length));
+      ones_complement_sum((const void *) &hdr->type, length));
 }
 
 void fill_igmp_igmp_sender(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
@@ -302,7 +302,7 @@ void fill_igmp_igmp_sender(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the IGMP message
   hdr->checksum =
-      u16bit_ones_complement(ones_complement_sum((const void *)hdr, length));
+      u16bit_ones_complement(ones_complement_sum((const void *) hdr, length));
 }
 
 void fill_igmp_igmp_receiver(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
@@ -334,7 +334,7 @@ void fill_igmp_igmp_receiver(INTERNET_GROUP_MANAGEMENT_PROTOCOL_hdr *hdr,
   // The checksum is the 16-bit one's complement of the one's complement sum of
   // the IGMP message
   hdr->checksum =
-      u16bit_ones_complement(ones_complement_sum((const void *)hdr, length));
+      u16bit_ones_complement(ones_complement_sum((const void *) hdr, length));
 }
 
 #endif  // GEN_H_

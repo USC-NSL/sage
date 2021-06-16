@@ -35,7 +35,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "icmp_hdr.h"
+#include "./icmp_hdr.h"
 
 bool isodd(uint32_t x) {
   // Returns true if the argument 'x' is an odd number
@@ -47,15 +47,15 @@ void pad(char **data, int shift_byte, int data_len, int pad_len,
          char pad_char) {
   // Pad 'data_len' size of 'data' with 'pad_len' size of 'pad_char'
 
-  *data = (char *)realloc(*data, data_len + pad_len);
+  *data = (char *) realloc(*data, data_len + pad_len);
   char *pad_start = *data + shift_byte + data_len;
-  memset((void *)pad_start, pad_char, pad_len);
+  memset((void *) pad_start, pad_char, pad_len);
 }
 
 void copy(char **buffer, char *data, int len) {
   // Copy 'len' bytes of argument 'data' to 'buffer'
 
-  memcpy((void *)(*buffer), data, len);
+  memcpy((void *) (*buffer), data, len);
 }
 
 uint16_t u16bit_ones_complement(uint32_t x) {
@@ -74,7 +74,7 @@ uint16_t u16bit_ones_complement(uint32_t x) {
 uint32_t ones_complement_sum(const void *data, int len) {
   // Return one's complement sum of the argument 'data' for 'len' size
 
-  const uint8_t *ptr = (uint8_t *)data;
+  const uint8_t *ptr = (uint8_t *) data;
   uint32_t sum;
   for (sum = 0; len >= 2; ptr += 2, len -= 2) {
     sum += ptr[0] << 8 | ptr[1];
