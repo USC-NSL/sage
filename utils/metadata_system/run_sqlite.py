@@ -397,3 +397,4 @@ if __name__ == "__main__":
             print(get_sentence_from_lf(lf, name=table2_name))
         except:
             print("Error: cannot find the original sentence by this LF")
+            sys.exit(1)
