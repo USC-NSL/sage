@@ -84,7 +84,7 @@ sed -i "/#define GEN_H_/a\\$include_guard" gen.h
 # analyze results
 # 1. check generated header
 echo "[$NAME] Check: Header.."
-results=`diff -q ${CUR_DIR}/${PROTOCOL_NAME}_hdr.h ${CUR_DIR}/expected_header.txt`
+results=`diff -q ${CUR_DIR}/${PROTOCOL_NAME}_hdr.h ${CUR_DIR}/expected_header.h`
 if [ "$results" ]; then
     echo "[$NAME] Check: Header Diff Output:"
     diff ${CUR_DIR}/${PROTOCOL_NAME}_hdr.h ${CUR_DIR}/expected_header.h
@@ -94,7 +94,7 @@ fi
 echo "[$NAME] Check: Headers OK"
 # . check generated code
 echo "[$NAME] Check: Code OK"
-results=`diff -q ${CUR_DIR}/gen.h ${CUR_DIR}/expected_code.txt`
+results=`diff -q ${CUR_DIR}/gen.h ${CUR_DIR}/expected_code.h`
 if [ "$results" ]; then
     echo "[$NAME] Check: Code Diff Output:"
     diff ${CUR_DIR}/gen.h ${CUR_DIR}/expected_code.h
