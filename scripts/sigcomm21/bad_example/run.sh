@@ -91,7 +91,7 @@ if [ "$zero_results" ]; then
     cmd="python3 $CCG_BIN -dd -s \"$zero_sentence\""
     analysis=$(eval $cmd)
     echo -e "${RED}$analysis${NC}"
-    echo -e "[$NAME] For demo purpose, if the sentence is revised by assigning 'bad' with 'NP' lexicon, CCG parsing will produce result."
+    echo -e "[$NAME] For demo purpose, if the sentence is revised by assigning 'bad' with 'NP' lexicon (see README), CCG parsing will produce result."
     popd
     echo "[$NAME] FAIL"
 fi
@@ -111,16 +111,24 @@ if [ "$results" ]; then
     fi
 
     if [ "$lf_mult" ]; then
-      echo "[$NAME] More than 1 LF sentence exists. Please rewrite below sentence(s):"
+      echo "[$NAME] More than 1 LF sentence exists."
       target=$(sed -n "/$lf_mult/{n; n;p;}" ${CUR_DIR}/output.txt)
       target_lf=$(echo $target | awk -F'[:}]' '{print $2;}')
       target_lf_no_lead_space="$(echo -e "${target_lf}" | sed -e 's/^[[:space:]]*//')"
       pushd $META_DIR
       cmd="python3 $META_BIN -gs -lf \"$target_lf_no_lead_space\""
       final=$(eval $cmd)
+      ret_code=$?
+      if [ $ret_code -ne 0 ]; then
+	  echo -e "[$NAME] ERROR: ${RED}$final${NC}"
+	  echo "[$NAME] Full execution log is kept in file 'output.txt'"
+	  popd
+	  exit 1
+      fi
+      echo "[$NAME] Please rewrite below sentence(s):"
       echo -e "\t ${RED}$final${NC}"
       echo "[$NAME] Full execution log is kept in file 'output.txt'"
-      echo "[$NAME] For demo purpose, if the sentence is revised by replacing comma with period. This program should not give any alarm."
+      echo "[$NAME] For demo purpose, if the sentence is revised by replacing the comma after 'reversed' with period in the input text (bad_echo.txt). After the fix, this test should not give any alarm."
       popd
       #echo $target_lf
     fi
