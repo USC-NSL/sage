@@ -31,7 +31,7 @@ make build
 ```
 Step 5: Execute SAGE to parse input text:
 
-Please refer to the commands in [Usage](#Usage).
+Please refer to the commands in [Usage](/README.md#usage).
 
 Step 6 (Optional): Shutdown the VM: 
 `vagrant halt`
