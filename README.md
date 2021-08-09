@@ -8,7 +8,7 @@ This tool is used to disambiguate protocol descriptions in IETF RFC documents, t
 
 _SAGE introduces semi-automated protocol processing across multiple protocol specifications. SAGE includes domain-specific extensions to semantic parsing and automated discovery of ambiguities and enables disambiguation; SAGE can convert these specs to code._
 
-For more information, please refer to the ACM SIGCOMM21 paper ([preprint](https://arxiv.org/pdf/2010.04801.pdf)).
+For more information, please refer to the [ACM SIGCOMM21 paper](https://dl.acm.org/doi/10.1145/3452296.3472910).
 
 
 ## Installation
